@@ -1,0 +1,42 @@
+﻿<Window x:Class="VK_SpirometerChart.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VK_SpirometerChart"
+        xmlns:graph="clr-namespace:MirCharting;assembly=MirCharting"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="750" Width="600" Closed="Window_Closed" Closing="Window_Closing_2" Unloaded="Window_Unloaded_1" WindowStyle="None">
+    <Grid ShowGridLines="False">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <TextBlock x:Name="TxtLbl" Text="data"   Grid.Row="0" Grid.Column="6"></TextBlock>
+        <ScrollViewer  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="3">
+                  <graph:RT_FlowVolumeChart FontSize="10"  x:Name="FVchart" VerticalContentAlignment="Top" VerticalAlignment="Top"    Width="300" Height="390" HorizontalAlignment="Left" ></graph:RT_FlowVolumeChart>
+            
+        </ScrollViewer>
+       
+
+        <Canvas Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" Grid.RowSpan="3" HorizontalAlignment="Left" VerticalAlignment="Top"   >
+            <graph:RT_VolumeTimeChart x:Name="VTchart" VerticalContentAlignment="Top" VerticalAlignment="Top"    Width="500" Height="400" HorizontalAlignment="Left" ></graph:RT_VolumeTimeChart>
+        </Canvas>
+        <StackPanel Grid.Row="2" Grid.Column="3" Orientation="Vertical">
+            <Button x:Name="BtnClear" Content="Clear FVC Chart" Margin="5" Click="BtnClear_Click"></Button>
+            <Button x:Name="BtnClearvc" Content="Clear VC Chart" Margin="5" Click="BtnClearvc_Click"></Button>
+            <Button x:Name="BtnFullView" Content="FullView" Margin="5" Click="BtnFullView_Click"></Button>
+            
+            <Button Content="Done" x:Name="BtnDone" Margin="5" Click="BtnDone_Click"></Button>
+        </StackPanel>
+    </Grid>
+</Window>
