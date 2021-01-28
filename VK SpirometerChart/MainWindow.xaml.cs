@@ -26,15 +26,13 @@ namespace VK_SpirometerChart
     public partial class MainWindow : Window
     {
         Commmodule commtoDAQ = new Commmodule();
-        double appheight = 800;
-        double apptop = 50;
+       // double appheight = 700;
+       // double apptop = 50;
         public MainWindow()
         {
             InitializeComponent();
             commtoDAQ.ReceivedMessage += ReceivedMessage;
-            commtoDAQ.initialize();
-
-          
+            commtoDAQ.initialize();          
             this.WindowState = WindowState.Maximized;
             double W = System.Windows.SystemParameters.PrimaryScreenWidth;
             double H = System.Windows.SystemParameters.PrimaryScreenHeight;
@@ -43,12 +41,12 @@ namespace VK_SpirometerChart
             //FVchart.Height = 300; //300; //300; //700;
             //FVchart.Width = 390;// 390; //390; //200;// 400;
              
-            FVchart.Height = 300; //300; //300; //700;
-            FVchart.Width = 390;// 390; //390; //200;// 400;
-            VTchart.Width = 400;
-            VTchart.Height = 200;
+            //FVchart.Height = 300; //300; //300; //700;
+            //FVchart.Width = 390;// 390; //390; //200;// 400;
+            //VTchart.Width = 400;
+            //VTchart.Height = 200;
 
-            this.Topmost = true;
+            //this.Topmost = true;
             //   this.Hide();
             // FVchart.ChartColor = Color.re
             this.WindowState = WindowState.Normal;
@@ -66,15 +64,14 @@ namespace VK_SpirometerChart
                     this.Dispatcher.Invoke(DispatcherPriority.Send,
                    new Action(delegate
                    {
-                       this.Top = 200;// Convert.ToDouble(ht[1] ) ;
-
-                       this.Left = 0;// Convert.ToDouble(ht[0]);
-                       this.Width = Convert.ToDouble(ht1[3]) + 215;
-                       this.Height = Convert.ToDouble(ht1[2]) - 105;
-                       appheight = Convert.ToDouble(ht1[2]) - 105; ;
-                       apptop = 200;
+                      // this.Top = 50;//this.Top = 200;// Convert.ToDouble(ht[1] ) ;
+                       //this.Left = 0;// Convert.ToDouble(ht[0]);
+                       //this.Width = Convert.ToDouble(ht1[3]) + 215;
+                       //this.Height = Convert.ToDouble(ht1[2]) - 105;
+                     //  appheight = Convert.ToDouble(ht1[2]) - 105; ;
+                      // apptop = 50;// apptop = 200;
                        count = 0;
-                       this.Topmost = Topmost;
+                      // this.Topmost = Topmost;
                        if (Height < 750)
                        {
                            BtnFullView.IsEnabled = true;
@@ -95,13 +92,13 @@ namespace VK_SpirometerChart
                     this.Dispatcher.Invoke(DispatcherPriority.Send,
                    new Action(delegate
                    {
-                       this.Top = 200;// Convert.ToDouble(ht[1] ) ;
+                       //this.Top = 50;//this.Top = 200;// Convert.ToDouble(ht[1] ) ;
 
-                       this.Left = 0;// Convert.ToDouble(ht[0]);
-                       this.Width = Convert.ToDouble(ht[3])+215;
-                      this.Height = Convert.ToDouble(ht[2])-105;
-                       appheight = Convert.ToDouble(ht[2]) - 105; ;
-                       apptop = 200;
+                      // this.Left = 0;// Convert.ToDouble(ht[0]);
+                      // this.Width = Convert.ToDouble(ht[3])+215;
+                      //this.Height = Convert.ToDouble(ht[2])-105;
+                     //  appheight = Convert.ToDouble(ht[2]) - 105; ;
+                      // apptop = 50;//apptop = 200;
                        if (Height<750)
                        {
                            BtnFullView.IsEnabled = true; 
@@ -211,8 +208,8 @@ namespace VK_SpirometerChart
                
             }
             //this.Show();
-            TxtLbl.Text = "";
-            TxtLbl.Text = count.ToString();
+            //TxtLbl.Text = "";
+            //TxtLbl.Text = count.ToString();
             FVchart.AddPointToLine(flow, vol);
            
         }));
@@ -272,7 +269,7 @@ namespace VK_SpirometerChart
             if (fullview)
             {
                
-                this.Top = 30;// Convert.ToDouble(ht[1] ) ;
+              //  this.Top = 30;// Convert.ToDouble(ht[1] ) ;
 
                // this.Left = 0;// Convert.ToDouble(ht[0]);
                               //  this.Width = Convert.ToDouble(ht[3]) + 215;
@@ -280,11 +277,11 @@ namespace VK_SpirometerChart
             }
             else
             {
-                this.Top = apptop;// Convert.ToDouble(ht[1] ) ;
+                //this.Top = apptop;// Convert.ToDouble(ht[1] ) ;
 
                 // this.Left = 0;// Convert.ToDouble(ht[0]);
                 //  this.Width = Convert.ToDouble(ht[3]) + 215;
-                this.Height = appheight;// Convert.ToDouble(ht[2]) - 105;
+               // this.Height = appheight;// Convert.ToDouble(ht[2]) - 105;
             }
         }
 

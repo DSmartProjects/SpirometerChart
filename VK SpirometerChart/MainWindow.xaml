@@ -6,37 +6,36 @@
         xmlns:local="clr-namespace:VK_SpirometerChart"
         xmlns:graph="clr-namespace:MirCharting;assembly=MirCharting"
         mc:Ignorable="d"
-        Title="MainWindow" Height="750" Width="600" Closed="Window_Closed" Closing="Window_Closing_2" Unloaded="Window_Unloaded_1" WindowStyle="None">
+        Title="MainWindow"  Width="auto"  Closed="Window_Closed" Closing="Window_Closing_2" Unloaded="Window_Unloaded_1" WindowStyle="None">
     <Grid ShowGridLines="False">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+            <ColumnDefinition Width="150"></ColumnDefinition>
+            <ColumnDefinition Width="30"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <TextBlock x:Name="TxtLbl" Text="data"   Grid.Row="0" Grid.Column="6"></TextBlock>
-        <ScrollViewer  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="3">
-                  <graph:RT_FlowVolumeChart FontSize="10"  x:Name="FVchart" VerticalContentAlignment="Top" VerticalAlignment="Top"    Width="300" Height="390" HorizontalAlignment="Left" ></graph:RT_FlowVolumeChart>
-            
-        </ScrollViewer>
-       
+        <Grid  Grid.Column="0" VerticalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="200"></RowDefinition>
+            </Grid.RowDefinitions>
+            <graph:RT_FlowVolumeChart Grid.Row="0"   ScrollViewer.VerticalScrollBarVisibility="Hidden"   FontSize="10" x:Name="FVchart"  VerticalAlignment="Center"    HorizontalAlignment="Left" ></graph:RT_FlowVolumeChart>
+        </Grid>
+        <Grid Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <graph:RT_VolumeTimeChart FontSize="20"  x:Name="VTchart" VerticalContentAlignment="Bottom" VerticalAlignment="Bottom"  HorizontalAlignment="Left" ></graph:RT_VolumeTimeChart>
+         
+        </Grid>
 
-        <Canvas Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" Grid.RowSpan="3" HorizontalAlignment="Left" VerticalAlignment="Top"   >
-            <graph:RT_VolumeTimeChart x:Name="VTchart" VerticalContentAlignment="Top" VerticalAlignment="Top"    Width="500" Height="400" HorizontalAlignment="Left" ></graph:RT_VolumeTimeChart>
-        </Canvas>
-        <StackPanel Grid.Row="2" Grid.Column="3" Orientation="Vertical">
-            <Button x:Name="BtnClear" Content="Clear FVC Chart" Margin="5" Click="BtnClear_Click"></Button>
+      
+        <StackPanel Grid.Column="2" Orientation="Vertical" VerticalAlignment="Center">
+            <Button Content="Clear FVC Chart"  Width="130"  x:Name="BtnClear" Margin="5" FontFamily="Open Sans" FontSize="12" FontWeight="SemiBold"  Background="#194F82" Foreground="#FFF"  Click="BtnClear_Click"></Button>
+            <Button Content="Clear VC Chart"  Width="130"  x:Name="BtnClearvc" Margin="5" FontFamily="Open Sans" FontSize="12" FontWeight="SemiBold"  Background="#194F82" Foreground="#FFF"  Click="BtnClearvc_Click"></Button>
+            <Button Content="FullView"  Width="130"  x:Name="BtnFullView" Margin="5"  FontFamily="Open Sans" FontSize="12" FontWeight="SemiBold"  Background="#194F82" Foreground="#FFF"  Click="BtnFullView_Click"></Button>
+            <Button Content="Done"  Width="130"  x:Name="Done" Margin="5"  FontFamily="Open Sans" FontSize="12" FontWeight="SemiBold"  Background="#194F82" Foreground="#FFF"  Click="BtnDone_Click"></Button>
+            <!--<Button x:Name="BtnClear" Content="Clear FVC Chart" Margin="5" Click="BtnClear_Click"></Button>
             <Button x:Name="BtnClearvc" Content="Clear VC Chart" Margin="5" Click="BtnClearvc_Click"></Button>
             <Button x:Name="BtnFullView" Content="FullView" Margin="5" Click="BtnFullView_Click"></Button>
-            
-            <Button Content="Done" x:Name="BtnDone" Margin="5" Click="BtnDone_Click"></Button>
+            <Button Content="Done" x:Name="BtnDone" Margin="5" Click="BtnDone_Click"></Button> -->
         </StackPanel>
     </Grid>
 </Window>
